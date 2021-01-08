@@ -5,6 +5,7 @@ import blocks from './blocks';
 import CustomStyle from './CustomStyle';
 import ControlSlider from './components/ControlSlider';
 import ControlColorPicker from './components/ControlColorPicker';
+import './template.css';
 
 function App() {
   /*
@@ -16,6 +17,11 @@ function App() {
   const defaultMod1Value = 0.75;
   const defaultMod2Value = 0.25;
   const defaultBackgroundColor = '#cccccc';
+
+  const [customAttribs, setCustomAttribs] = useState([]);
+  function setAttribs(attributes) {
+    setCustomAttribs(attributes)
+  }
 
   const [blockNumber, setBlockNumber] = useState(defaultBlockNumber);
   const [mod1, setMod1] = useState(defaultMod1Value);
@@ -57,20 +63,15 @@ function App() {
               background={backgroundColor}
               mod1={mod1}
               mod2={mod2}
+              attribsCallback={setAttribs}
             />
           ) : null}
         </div>
       </div>
 
-      <div
-        style={{
-          width: '200px',
-          borderLeft: '#e0e0e0 1px solid',
-          backgroundColor: '#fff'
-        }}
-      >
-        <div style={{ height: '40px', background: '#000', color: '#fff', lineHeight: '40px', textAlign: 'center' }}>Change Block</div>
-        <div style={{ padding: '20px' }}>
+      <div className="Sidebar">
+        <div className="Sidebar__GroupHeader">Change Block</div>
+        <div className="Sidebar__Group">
           <ControlSlider
             modValue={blockNumber}
             modValueMin="1"
@@ -80,8 +81,8 @@ function App() {
           />
         </div>
 
-        <div style={{ height: '40px', background: '#000', color: '#fff', lineHeight: '40px', textAlign: 'center' }}>Change Style</div>
-        <div style={{ padding: '20px' }}>
+        <div className="Sidebar__GroupHeader">Change Style</div>
+        <div class="Sidebar__Group">
           {<ControlSlider
             controlLabel="mod1"
             modValue={mod1}
@@ -97,6 +98,16 @@ function App() {
             modValue={backgroundColor}
             onChange={(e) => { changeModValue(setBackgroundColor, e) }}
           />
+        </div>
+        <div className="Sidebar__GroupHeader">Custom Attributes</div>
+        <div className="Sidebar__Group">
+          {customAttribs.attributes ? 
+            customAttribs.attributes.map( (attribute, index) => {
+              return <div className="customAttribute">
+                  <div className="Sidebar__ContentHeader">{attribute.trait_type}</div>
+                  <div>{attribute.value}</div>
+                </div>
+            }) : ''}
         </div>
       </div>
     </div>

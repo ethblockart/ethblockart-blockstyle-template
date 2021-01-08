@@ -6,8 +6,8 @@ const ControlColorPicker = function (props) {
     }
 
     return (
-        <div style={{'margin': '5px 0', 'font-size': '11px'}}>
-            <label style={{'display': 'block', 'margin-bottom': '4px' }}>{props.controlLabel}</label>
+        <div>
+            <label className="Sidebar__ContentHeader">{props.controlLabel}</label>
             <input
                 id="controlColorPicker"
                 type="color"

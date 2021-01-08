@@ -1,0 +1,28 @@
+.Sidebar {
+  font-size: 11px;
+  width: 200px;
+  border-left: #e0e0e0 1px solid;
+  background-color: '#fff'
+}
+
+.CustomAttribute {
+  margin-bottom: 15px;
+}
+
+.Sidebar__GroupHeader {
+  height: 40px;
+  background: #000;
+  color: #fff;
+  line-height: 40px;
+  text-align: center
+}
+.Sidebar__Group {
+  font-weight: normal;
+  padding: 20px;
+}
+
+.Sidebar__ContentHeader {
+  display: block;
+  font-weight: bold;
+  margin: 5px 0;
+}

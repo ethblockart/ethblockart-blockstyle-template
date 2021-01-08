@@ -40,6 +40,7 @@ const CustomStyle = ({
   color2 = '#c62a88',
   color3 = '#802d57',
   background = '#ccc',
+  attribsCallback
 }) => {
   const shuffleBag = useRef();
   const hoistedValue = useRef();
@@ -51,7 +52,6 @@ const CustomStyle = ({
     // Keep reference of canvas element for snapshots
     let _p5 = p5.createCanvas(width, height).parent(canvasParentRef);
     canvasRef.current = p5;
-
     attributesRef.current = () => {
       return {
         // This is called when the final image is generated, when creator opens the Mint NFT modal.
@@ -117,6 +117,8 @@ const CustomStyle = ({
         dot.radius * M * mod1
       );
     });
+
+    attribsCallback(attributesRef.current)
   };
 
   return <Sketch setup={setup} draw={draw} windowResized={handleResize} />;

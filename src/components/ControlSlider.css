@@ -5,6 +5,7 @@
 
 .control-slider label {
   display: block;
+  font-weight: bold;
 }
 .control-slider .control-input {
   display: flex;
