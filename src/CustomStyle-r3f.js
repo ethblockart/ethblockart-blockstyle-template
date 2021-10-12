@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef } from 'react';
-import { useThree, Canvas } from 'react-three-fiber';
+import { useThree, Canvas } from '@react-three/fiber';
 import MersenneTwist from 'mersenne-twister';
 import { TorusKnot } from '@react-three/drei';
 import Color from 'color';
