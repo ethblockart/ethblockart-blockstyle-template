@@ -105,7 +105,7 @@ function App() {
       <Sidebar
         blocks={active ? liveBlocks : blocks}
         blockNumber={active ? liveBlockNumber : blockNumber}
-        attributes={attributesRef.current || {}}
+        attributes={attributesRef.current && attributesRef.current() || {}}
         mods={mods}
         handleBlockChange={(e) =>
           active ? setLiveBlockNumber(e) : setBlockNumber(e)
